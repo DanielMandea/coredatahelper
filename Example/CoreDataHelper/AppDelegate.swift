@@ -13,8 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? UINavigationController,
+            let tvc = vc.topViewController as? TableViewController {
+            let presenter = DataManager()
+            tvc.dataManager = presenter
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        }
         // Override point for customization after application launch.
         return true
     }

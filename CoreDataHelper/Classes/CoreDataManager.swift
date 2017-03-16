@@ -13,13 +13,15 @@ import CoreData
  Use this protocol in order to manage light weight core data stack
  */
 public protocol SetupCoreData: class {
+  /// Holds persistent coordinator continer name !!!!!
+  var persistentContainerName: String! {get set}
+  
+  /// Holds a refference to the a saving context (bg context)
+  var savingContext: NSManagedObjectContext { get set }
   
   /// Holds the persistent coordinator
   @available(iOS 10.0, *)
   var persistentContainer: NSPersistentContainer { get set }
-  
-  /// Holds a refference to the a saving context (bg context)
-  var savingContext: NSManagedObjectContext { get set }
 }
 
 
@@ -30,11 +32,12 @@ private let sharedManager = CoreDataManger()
  This is a singletone that enhances work with core data stack 
  */
 @available(iOS 10.0, *)
-class CoreDataManger: NSObject, SetupCoreData {
+public class CoreDataManger: NSObject, SetupCoreData {
+
   
   // MARK: - Singletone
   
-  class var sharedInstance: CoreDataManger {
+  public class var sharedInstance: CoreDataManger {
     return sharedManager
   }
   
@@ -42,12 +45,16 @@ class CoreDataManger: NSObject, SetupCoreData {
   
   override init() {
     super.init()
-    
+    persistentContainerName = "Model"
   }
+  
+  // MARK: - Internal variables 
+  
+   public var persistentContainerName: String!
   
   // MARK: - SetupCoreData
   
-  lazy var savingContext: NSManagedObjectContext = {
+  lazy public var savingContext: NSManagedObjectContext = {
     let context = self.persistentContainer.newBackgroundContext()
     context.automaticallyMergesChangesFromParent = true
     context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -55,14 +62,14 @@ class CoreDataManger: NSObject, SetupCoreData {
   }()
   
   @available(iOS 10.0, *)
-  lazy var persistentContainer: NSPersistentContainer = {
+  lazy public var persistentContainer: NSPersistentContainer = {
     /*
      The persistent container for the application. This implementation
      creates and returns a container, having loaded the store for the
      application to it. This property is optional since there are legitimate
      error conditions that could cause the creation of the store to fail.
      */
-    let container = NSPersistentContainer(name: "Model")
+    let container = NSPersistentContainer(name: self.persistentContainerName)
     container.viewContext.automaticallyMergesChangesFromParent = true
     container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -83,5 +90,6 @@ class CoreDataManger: NSObject, SetupCoreData {
     })
     return container
   }()
-  
 }
+
+
