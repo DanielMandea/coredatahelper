@@ -1,16 +1,16 @@
 PODS:
-  - CoreDataHelper (0.1.0)
+  - CoreDataStackHelper (0.1.0)
 
 DEPENDENCIES:
-  - CoreDataHelper (from `../`)
+  - CoreDataStackHelper (from `../`)
 
 EXTERNAL SOURCES:
-  CoreDataHelper:
+  CoreDataStackHelper:
     :path: ../
 
 SPEC CHECKSUMS:
-  CoreDataHelper: a0fb95f273e1401c2c795ccc6f0d0f41da0aaccc
+  CoreDataStackHelper: 31a4c117dcca8e8b69d3718f6eb1a50d32f1bc4d
 
-PODFILE CHECKSUM: 46e67b2b9667d92edbd9253e806144d7eb73cea6
+PODFILE CHECKSUM: 269fcbc4beac80749930998f30ebfa8c64a519db
 
 COCOAPODS: 1.2.0

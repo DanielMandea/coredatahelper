@@ -1,0 +1,22 @@
+{
+  "name": "CoreDataStackHelper",
+  "version": "0.1.0",
+  "summary": "A short description of CoreDataStackHelper.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/DanielMandea/CoreDataStackHelper",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "DanielMandea": "daniel.mandea@ro.ibm.com"
+  },
+  "source": {
+    "git": "https://github.com/DanielMandea/CoreDataStackHelper.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "CoreDataStackHelper/Classes/**/*"
+}

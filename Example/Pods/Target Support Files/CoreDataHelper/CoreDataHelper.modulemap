@@ -1,6 +1,0 @@
-framework module CoreDataHelper {
-  umbrella header "CoreDataHelper-umbrella.h"
-
-  export *
-  module * { export * }
-}

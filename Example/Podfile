@@ -1,9 +1,9 @@
 use_frameworks!
 
-target 'CoreDataHelper_Example' do
-  pod 'CoreDataHelper', :path => '../'
+target 'CoreDataStackHelper_Example' do
+  pod 'CoreDataStackHelper', :path => '../'
 
-  target 'CoreDataHelper_Tests' do
+  target 'CoreDataStackHelper_Tests' do
     inherit! :search_paths
 
     
