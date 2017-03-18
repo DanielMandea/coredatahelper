@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CoreDataHelper'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of CoreDataHelper.'
+  s.version          = '1.0'
+  s.summary          = 'Lightweight CoreData helper for creting / saving anf fetching NSManageObjects'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This pod in intended to enhance the work with light core data stacks.
+You can find helpers for the following needs:
+1. Create single instances from a single NSManagedObject subclass based form some data
+2. Create multiple instances from a single NSManagedObject subclass based on an array of data
+3. Create and save multiple / single instances fo NSManagedObject subclass
+4. Clean and light way of fetching NSManagedObject subclasses
+Please check example project in order to get in touch with what this pod can do.
                        DESC
 
   s.homepage         = 'https://github.com/DanielMandea/CoreDataHelper'
@@ -26,9 +32,9 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'DanielMandea' => 'daniel.mandea@ro.ibm.com' }
   s.source           = { :git => 'https://github.com/DanielMandea/CoreDataHelper.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/MandeaDaniel'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'CoreDataHelper/Classes/**/*'
   

@@ -56,8 +56,4 @@ class TableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
-
 }
-
-

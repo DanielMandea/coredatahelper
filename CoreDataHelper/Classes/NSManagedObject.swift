@@ -64,12 +64,12 @@ public extension AddManagedObject where Self: UpdateManangedObject, Self: NSMana
 
 public protocol SaveManagedObject: class {
   /**
-   This method is called by all managedObjects in order to save singe
+   This method is called by all managedObjects in order to save single
    - parameter data:          The data received for saving
    - parameter context:       The context that should handle the fetch
    - parameter completion:    The block that is called after the process completed
    */
-  static func saveSinge(data:Any, context:NSManagedObjectContext, completion:@escaping CompletionBlock)
+  static func saveSingle(data:Any, context:NSManagedObjectContext, completion:@escaping CompletionBlock)
   
   /**
    This method is called by all managedObjects in order to save multiple
@@ -84,7 +84,7 @@ public protocol SaveManagedObject: class {
 
 public extension SaveManagedObject where Self: AddManagedObject {
   
-  static public func saveSinge(data:Any, context:NSManagedObjectContext, completion:@escaping CompletionBlock) {
+  static public func saveSingle(data:Any, context:NSManagedObjectContext, completion:@escaping CompletionBlock) {
     context.perform {
       _ = self.add(data: data, context: context)
       context.save(completion: completion)
