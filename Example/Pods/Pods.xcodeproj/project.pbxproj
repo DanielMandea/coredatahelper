@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		1B7065B91E7D196600630373 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		1B7065BA1E7D196600630373 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
+		1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1D31206A62A898B407951E380D51F8FF /* Pods-CoreDataStackHelper_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CoreDataStackHelper_Example.modulemap"; sourceTree = "<group>"; };
 		2A030BBD9F6489D50D5B42B65C841778 /* Pods-CoreDataStackHelper_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoreDataStackHelper_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		3C2A2670AC138140C733C730EF5BF303 /* CoreDataStackHelper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CoreDataStackHelper.xcconfig; sourceTree = "<group>"; };
