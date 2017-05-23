@@ -17,7 +17,10 @@ public protocol SetupCoreData: class {
   var persistentContainerName: String! {get set}
   
   /// Holds a refference to the a saving context (bg context)
-  var savingContext: NSManagedObjectContext { get set }
+  var savingContext: NSManagedObjectContext { get }
+  
+  // Holds a refference to the main context (bg context)
+  var mainContext: NSManagedObjectContext { get set }
   
   /// Holds the persistent coordinator
   @available(iOS 10.0, *)
@@ -29,11 +32,11 @@ public protocol SetupCoreData: class {
 private let sharedManager = CoreDataManger()
 
 /**
- This is a singletone that enhances work with core data stack 
+ This is a singletone that enhances work with core data stack
  */
 @available(iOS 10.0, *)
 public class CoreDataManger: NSObject, SetupCoreData {
-
+  
   
   // MARK: - Singletone
   
@@ -48,14 +51,25 @@ public class CoreDataManger: NSObject, SetupCoreData {
     persistentContainerName = "Model"
   }
   
-  // MARK: - Internal variables 
+  // MARK: - Internal variables
   
-   public var persistentContainerName: String!
+  public var persistentContainerName: String!
   
   // MARK: - SetupCoreData
   
-  lazy public var savingContext: NSManagedObjectContext = {
-    let context = self.persistentContainer.newBackgroundContext()
+  public var savingContext: NSManagedObjectContext {
+    get {
+      let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+      context.persistentStoreCoordinator = self.persistentContainer.persistentStoreCoordinator
+      context.automaticallyMergesChangesFromParent = true
+      context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+      return context
+    }
+  }
+  
+  lazy public var mainContext: NSManagedObjectContext = {
+    let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    context.persistentStoreCoordinator = self.persistentContainer.persistentStoreCoordinator
     context.automaticallyMergesChangesFromParent = true
     context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     return context
@@ -70,8 +84,6 @@ public class CoreDataManger: NSObject, SetupCoreData {
      error conditions that could cause the creation of the store to fail.
      */
     let container = NSPersistentContainer(name: self.persistentContainerName)
-    container.viewContext.automaticallyMergesChangesFromParent = true
-    container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
       if let error = error {
         // Replace this implementation with code to handle the error appropriately.
@@ -91,5 +103,3 @@ public class CoreDataManger: NSObject, SetupCoreData {
     return container
   }()
 }
-
-
