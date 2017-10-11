@@ -24,8 +24,8 @@ class DataManager: NSObject {
   var allUsers: Array<User>
   
   override init() {
-    savingContext = CoreDataManger.sharedInstance.savingContext
-    viewContext = CoreDataManger.sharedInstance.persistentContainer.viewContext
+    savingContext = Persistence.store.savingContext
+    viewContext = Persistence.store.persistentContainer.viewContext
     allUsers = [User]()
     super.init()
   }

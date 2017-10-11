@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		053A3C03CB92464667DA30560330C728 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		1B7065BC1E7D196600630373 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065B91E7D196600630373 /* NSManagedObject.swift */; };
-		1B7065BD1E7D196600630373 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065BA1E7D196600630373 /* CoreDataManager.swift */; };
+		1B7065BD1E7D196600630373 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065BA1E7D196600630373 /* Persistence.swift */; };
 		1B7065BE1E7D196600630373 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */; };
 		2AF08FCAD05E60DA36DC8AA4C1639332 /* CoreDataStackHelper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 454BAA65957D98050823E5F94F14104F /* CoreDataStackHelper-dummy.m */; };
 		3EB38D1FB576D70AC88B12D9C744802B /* Pods-CoreDataStackHelper_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6C2679C155D83E10294C4A992E69C7C /* Pods-CoreDataStackHelper_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,7 +33,7 @@
 
 /* Begin PBXFileReference section */
 		1B7065B91E7D196600630373 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
-		1B7065BA1E7D196600630373 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; tabWidth = 2; };
+		1B7065BA1E7D196600630373 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1D31206A62A898B407951E380D51F8FF /* Pods-CoreDataStackHelper_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CoreDataStackHelper_Example.modulemap"; sourceTree = "<group>"; };
 		2A030BBD9F6489D50D5B42B65C841778 /* Pods-CoreDataStackHelper_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CoreDataStackHelper_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				1B7065B91E7D196600630373 /* NSManagedObject.swift */,
-				1B7065BA1E7D196600630373 /* CoreDataManager.swift */,
+				1B7065BA1E7D196600630373 /* Persistence.swift */,
 				1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */,
 			);
 			path = Classes;
@@ -350,7 +350,7 @@
 			files = (
 				2AF08FCAD05E60DA36DC8AA4C1639332 /* CoreDataStackHelper-dummy.m in Sources */,
 				1B7065BC1E7D196600630373 /* NSManagedObject.swift in Sources */,
-				1B7065BD1E7D196600630373 /* CoreDataManager.swift in Sources */,
+				1B7065BD1E7D196600630373 /* Persistence.swift in Sources */,
 				1B7065BE1E7D196600630373 /* NSManagedObjectContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

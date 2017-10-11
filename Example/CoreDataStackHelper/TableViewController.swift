@@ -23,6 +23,10 @@ class TableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         dataManager = DataManager()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData(self.refreshControl!)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
