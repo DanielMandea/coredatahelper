@@ -21,7 +21,7 @@ public protocol PersistentStore: class {
   
   /// Holds the configuration for the persistent store
   @available(iOS 10.0, *)
-  var persistentStoreDescriptions: Array<NSPersistentStoreDescription>! {get set}
+  var persistentStoreDescriptions: Array<NSPersistentStoreDescription>? {get set}
   
   /// Holds a refference to the a saving context (bg context)
   var savingContext: NSManagedObjectContext { get }
@@ -61,15 +61,15 @@ public class Persistence: PersistentStore {
   
   init() {
     persistentContainerName = kDefatultContainerName
-    let description = NSPersistentStoreDescription()
-    description.type = NSSQLiteStoreType
-    persistentStoreDescriptions = [description]
+    //    let description = NSPersistentStoreDescription()
+    //    description.type = NSSQLiteStoreType
+    //    persistentStoreDescriptions = [description]
   }
   
   // MARK: - PersistentStore
   
   public var persistentContainerName: String!
-  public var persistentStoreDescriptions: Array<NSPersistentStoreDescription>!
+  public var persistentStoreDescriptions: Array<NSPersistentStoreDescription>?
   
   public var savingContext: NSManagedObjectContext {
     get {
@@ -100,7 +100,9 @@ public class Persistence: PersistentStore {
   @available(iOS 10.0, *)
   lazy public var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: persistentContainerName)
-    container.persistentStoreDescriptions = persistentStoreDescriptions
+    if let descriptions = persistentStoreDescriptions {
+      container.persistentStoreDescriptions = descriptions
+    }
     return container
   }()
   
@@ -121,4 +123,3 @@ public class Persistence: PersistentStore {
     persistentContainer.loadPersistentStores(completionHandler: block)
   }
 }
-
