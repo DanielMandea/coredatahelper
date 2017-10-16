@@ -35,8 +35,8 @@ public protocol PersistentStore: class {
   
   @available(iOS 10.0, *)
   func setup(with name: String,
-  descriptions:Array<NSPersistentStoreDescription>?,
-  comletion block:@escaping LoadPersistentStoreCompletion)
+             descriptions:Array<NSPersistentStoreDescription>?,
+             comletion block:@escaping LoadPersistentStoreCompletion)
 }
 
 public let kDefatultContainerName = "Model"
@@ -83,7 +83,11 @@ public class Persistence: PersistentStore {
   
   public var mainContext: NSManagedObjectContext {
     get {
-      return persistentContainer.viewContext
+      let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+      context.persistentStoreCoordinator = self.persistentContainer.persistentStoreCoordinator
+      context.automaticallyMergesChangesFromParent = true
+      context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+      return context
     }
   }
   
@@ -104,12 +108,12 @@ public class Persistence: PersistentStore {
    Use this method in order to load the persistent store
    - parameter name:          The name of the container
    - parameter descriptions:  The descriptions related to NSPersistentStoreDescription
-   - parameter block:         The block that is called after completing the process 
+   - parameter block:         The block that is called after completing the process
    */
   @available(iOS 10.0, *)
   public func setup(with name: String = kDefatultContainerName,
-             descriptions:Array<NSPersistentStoreDescription>?,
-             comletion block:@escaping LoadPersistentStoreCompletion) {
+                    descriptions:Array<NSPersistentStoreDescription>?,
+                    comletion block:@escaping LoadPersistentStoreCompletion) {
     persistentContainerName = name
     if descriptions != nil {
       persistentStoreDescriptions = descriptions
@@ -117,3 +121,4 @@ public class Persistence: PersistentStore {
     persistentContainer.loadPersistentStores(completionHandler: block)
   }
 }
+
