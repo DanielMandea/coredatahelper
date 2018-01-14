@@ -21,6 +21,8 @@ public extension NSManagedObjectContext {
       } catch let error {
         completion(false, error)
       }
+    } else {
+      completion(true, nil)
     }
   }
   

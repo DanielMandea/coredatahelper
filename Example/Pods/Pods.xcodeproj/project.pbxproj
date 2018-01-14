@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		053A3C03CB92464667DA30560330C728 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		1B7065BC1E7D196600630373 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065B91E7D196600630373 /* NSManagedObject.swift */; };
+		1B573191200BBEA1007E67DE /* NSManagedObject+Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B573190200BBEA1007E67DE /* NSManagedObject+Delete.swift */; };
+		1B573193200BBF34007E67DE /* NSManagedObject+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B573192200BBF34007E67DE /* NSManagedObject+Update.swift */; };
+		1B573195200BC253007E67DE /* NSManagedObject+Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B573194200BC253007E67DE /* NSManagedObject+Add.swift */; };
+		1B573197200BC2A9007E67DE /* NSManagedObject+Fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B573196200BC2A9007E67DE /* NSManagedObject+Fetch.swift */; };
+		1B573199200BC30E007E67DE /* NSManagedObject+SaveOrUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B573198200BC30E007E67DE /* NSManagedObject+SaveOrUpdate.swift */; };
+		1B7065BC1E7D196600630373 /* NSManagedObject+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065B91E7D196600630373 /* NSManagedObject+Save.swift */; };
 		1B7065BD1E7D196600630373 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065BA1E7D196600630373 /* Persistence.swift */; };
 		1B7065BE1E7D196600630373 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */; };
 		2AF08FCAD05E60DA36DC8AA4C1639332 /* CoreDataStackHelper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 454BAA65957D98050823E5F94F14104F /* CoreDataStackHelper-dummy.m */; };
@@ -32,7 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B7065B91E7D196600630373 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
+		1B573190200BBEA1007E67DE /* NSManagedObject+Delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Delete.swift"; sourceTree = "<group>"; };
+		1B573192200BBF34007E67DE /* NSManagedObject+Update.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Update.swift"; sourceTree = "<group>"; tabWidth = 2; };
+		1B573194200BC253007E67DE /* NSManagedObject+Add.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Add.swift"; sourceTree = "<group>"; tabWidth = 2; };
+		1B573196200BC2A9007E67DE /* NSManagedObject+Fetch.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Fetch.swift"; sourceTree = "<group>"; tabWidth = 2; };
+		1B573198200BC30E007E67DE /* NSManagedObject+SaveOrUpdate.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+SaveOrUpdate.swift"; sourceTree = "<group>"; tabWidth = 2; };
+		1B7065B91E7D196600630373 /* NSManagedObject+Save.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Save.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		1B7065BA1E7D196600630373 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; tabWidth = 2; };
 		1D31206A62A898B407951E380D51F8FF /* Pods-CoreDataStackHelper_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CoreDataStackHelper_Example.modulemap"; sourceTree = "<group>"; };
@@ -204,9 +214,14 @@
 		A6361FA667254CCB781CF68E59670B3D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1B7065B91E7D196600630373 /* NSManagedObject.swift */,
+				1B7065B91E7D196600630373 /* NSManagedObject+Save.swift */,
+				1B573190200BBEA1007E67DE /* NSManagedObject+Delete.swift */,
 				1B7065BA1E7D196600630373 /* Persistence.swift */,
 				1B7065BB1E7D196600630373 /* NSManagedObjectContext.swift */,
+				1B573192200BBF34007E67DE /* NSManagedObject+Update.swift */,
+				1B573194200BC253007E67DE /* NSManagedObject+Add.swift */,
+				1B573196200BC2A9007E67DE /* NSManagedObject+Fetch.swift */,
+				1B573198200BC30E007E67DE /* NSManagedObject+SaveOrUpdate.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -348,9 +363,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B573197200BC2A9007E67DE /* NSManagedObject+Fetch.swift in Sources */,
 				2AF08FCAD05E60DA36DC8AA4C1639332 /* CoreDataStackHelper-dummy.m in Sources */,
-				1B7065BC1E7D196600630373 /* NSManagedObject.swift in Sources */,
+				1B7065BC1E7D196600630373 /* NSManagedObject+Save.swift in Sources */,
+				1B573195200BC253007E67DE /* NSManagedObject+Add.swift in Sources */,
+				1B573193200BBF34007E67DE /* NSManagedObject+Update.swift in Sources */,
+				1B573199200BC30E007E67DE /* NSManagedObject+SaveOrUpdate.swift in Sources */,
 				1B7065BD1E7D196600630373 /* Persistence.swift in Sources */,
+				1B573191200BBEA1007E67DE /* NSManagedObject+Delete.swift in Sources */,
 				1B7065BE1E7D196600630373 /* NSManagedObjectContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,5 @@
 import UIKit
 import XCTest
-import CoreDataStackHelper
 
 class Tests: XCTestCase {
     

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CoreDataStackHelper'
-  s.version          = '0.3.1'
+  s.version          = '0.4.0'
   s.summary          = 'Lightweight CoreData helper for creting / saving anf fetching NSManageObjects'
 
 # This description is used to generate tags and improve search results.

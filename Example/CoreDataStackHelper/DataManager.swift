@@ -16,9 +16,13 @@ class DataManager: NSObject {
   var viewContext: NSManagedObjectContext
   
   let users = [
-    ["name":"ion 1", "uniqueID":"4", "age":21],
-    ["name":"jan 2", "uniqueID":"5", "age":21],
-    ["name":"ghita 3", "uniqueID":"6", "age":21]
+    ["name":"ghita 1", "uniqueID":"4", "age":21],
+    ["name":"ghita 2", "uniqueID":"5", "age":22],
+    ["name":"ghita 3", "uniqueID":"6", "age":23],
+    ["name":"ghita 4", "uniqueID":"7", "age":24],
+    ["name":"ghita 5", "uniqueID":"8", "age":25],
+    ["name":"ghita 6", "uniqueID":"10", "age":26]
+    
   ]
   
   var allUsers: Array<User>
@@ -35,19 +39,19 @@ class DataManager: NSObject {
    */
   func fetch(with completion: @escaping CompletionBlock) {
     // Save some users
-    User.saveMultiple(data: users, context: savingContext) { (success, error) in
-      // Load entries after completion
-      DispatchQueue.main.async {
-        do {
-          if let data = try User.fetch(with: nil, in: self.viewContext) {
-             self.allUsers = data
-          }
-        } catch {
-          
+    let context =  Persistence.store.persistentContainer.viewContext
+    User.saveOrUpdateMultiple(with: self.users, context: context, completion: { (success, error) in
+        DispatchQueue.main.async {
+            do {
+                if let data = try User.fetch(with: nil, in: self.viewContext) {
+                    self.allUsers = data
+                }
+            } catch {
+                
+            }
+            completion(success, error)
         }
-        completion(success, error)
-      }
-    }
+    })
   }
   
   /**
