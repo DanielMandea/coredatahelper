@@ -32,11 +32,6 @@ public protocol PersistentStore: class {
   /// Holds the persistent coordinator
   @available(iOS 10.0, *)
   var persistentContainer: NSPersistentContainer { get set }
-  
-  @available(iOS 10.0, *)
-  func setup(with name: String,
-             descriptions:Array<NSPersistentStoreDescription>?,
-             comletion block:@escaping LoadPersistentStoreCompletion)
 }
 
 public let kDefatultContainerName = "Model"
@@ -49,11 +44,11 @@ public let kDefatultContainerName = "Model"
 private let sharedManager = Persistence()
 
 @available(iOS 10.0, *)
-public class Persistence: PersistentStore {
+open class Persistence: PersistentStore {
   
   // MARK: - Singletone
   
-  public class var store: Persistence {
+  open class var store: Persistence {
     return sharedManager
   }
   
@@ -61,17 +56,14 @@ public class Persistence: PersistentStore {
   
   init() {
     persistentContainerName = kDefatultContainerName
-    //    let description = NSPersistentStoreDescription()
-    //    description.type = NSSQLiteStoreType
-    //    persistentStoreDescriptions = [description]
   }
   
   // MARK: - PersistentStore
   
-  public var persistentContainerName: String!
-  public var persistentStoreDescriptions: Array<NSPersistentStoreDescription>?
+  open var persistentContainerName: String!
+  open var persistentStoreDescriptions: Array<NSPersistentStoreDescription>?
   
-  public var savingContext: NSManagedObjectContext {
+  open var savingContext: NSManagedObjectContext {
     get {
       let context = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
       context.persistentStoreCoordinator = self.persistentContainer.persistentStoreCoordinator
@@ -81,7 +73,7 @@ public class Persistence: PersistentStore {
     }
   }
   
-  public var mainContext: NSManagedObjectContext {
+  open var mainContext: NSManagedObjectContext {
     get {
       let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
       context.persistentStoreCoordinator = self.persistentContainer.persistentStoreCoordinator
@@ -103,23 +95,11 @@ public class Persistence: PersistentStore {
     if let descriptions = persistentStoreDescriptions {
       container.persistentStoreDescriptions = descriptions
     }
+    container.loadPersistentStores(completionHandler: { (description, error) in
+      if let error = error {
+        print(error)
+      }
+    })
     return container
   }()
-  
-  /**
-   Use this method in order to load the persistent store
-   - parameter name:          The name of the container
-   - parameter descriptions:  The descriptions related to NSPersistentStoreDescription
-   - parameter block:         The block that is called after completing the process
-   */
-  @available(iOS 10.0, *)
-  public func setup(with name: String = kDefatultContainerName,
-                    descriptions:Array<NSPersistentStoreDescription>?,
-                    comletion block:@escaping LoadPersistentStoreCompletion) {
-    persistentContainerName = name
-    if descriptions != nil {
-      persistentStoreDescriptions = descriptions
-    }
-    persistentContainer.loadPersistentStores(completionHandler: block)
-  }
 }
