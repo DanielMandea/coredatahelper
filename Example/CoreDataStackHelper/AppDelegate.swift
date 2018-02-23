@@ -25,11 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       window?.makeKeyAndVisible()
     }
     // Setup persistence store
-    Persistence.store.setup(descriptions: nil) { (persistentStoreDescription, error) in
-      if let currentError = error {
-        print(currentError)
-      }
-    }
+    LocalPersistance.setup()
     // Override point for customization after application launch.
     return true
   }

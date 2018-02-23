@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1726C20D6F806446430C8E27 /* Pods_CoreDataStackHelper_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB7EE44A718D8BDB64887713 /* Pods_CoreDataStackHelper_Tests.framework */; };
+		1B1A42222040B4E9007D77CC /* LocalPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1A42212040B4E9007D77CC /* LocalPersistance.swift */; };
 		1B7065AB1E7D192E00630373 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065A81E7D192E00630373 /* User+CoreDataClass.swift */; };
 		1B7065AC1E7D192E00630373 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065A91E7D192E00630373 /* User+CoreDataProperties.swift */; };
 		1B7065AD1E7D192E00630373 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 1B7065AA1E7D192E00630373 /* Model.xcdatamodel */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		04F6D13F4F46C35496A18831 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1B1A42212040B4E9007D77CC /* LocalPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPersistance.swift; sourceTree = "<group>"; };
 		1B7065A81E7D192E00630373 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; tabWidth = 2; };
 		1B7065A91E7D192E00630373 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1B7065AA1E7D192E00630373 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				1B7065A81E7D192E00630373 /* User+CoreDataClass.swift */,
 				1B7065A91E7D192E00630373 /* User+CoreDataProperties.swift */,
 				1B7065AA1E7D192E00630373 /* Model.xcdatamodel */,
+				1B1A42212040B4E9007D77CC /* LocalPersistance.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				1B7065B61E7D195000630373 /* DataManager.swift in Sources */,
 				1B7065AD1E7D192E00630373 /* Model.xcdatamodel in Sources */,
 				1B7065AC1E7D192E00630373 /* User+CoreDataProperties.swift in Sources */,
+				1B1A42222040B4E9007D77CC /* LocalPersistance.swift in Sources */,
 				1B7065AB1E7D192E00630373 /* User+CoreDataClass.swift in Sources */,
 				1B7065B51E7D195000630373 /* UserTableViewCell.swift in Sources */,
 			);

@@ -91,8 +91,8 @@ open class Persistence: PersistentStore {
    */
   @available(iOS 10.0, *)
   lazy public var persistentContainer: NSPersistentContainer = {
-    let container = NSPersistentContainer(name: persistentContainerName)
-    if let descriptions = persistentStoreDescriptions {
+    let container = NSPersistentContainer(name: self.persistentContainerName)
+    if let descriptions = self.persistentStoreDescriptions {
       container.persistentStoreDescriptions = descriptions
     }
     container.loadPersistentStores(completionHandler: { (description, error) in
